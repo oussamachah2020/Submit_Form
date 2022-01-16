@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(90deg,violet,darkblue);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+h1 { color: #fff; }
+
+.form {
+    /* border: 1px solid #fff; */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+input {
+    border: none;
+    background-color: rgb(43, 43, 149);
+    border-radius: 7px;
+    padding: 12px 5pc 12px 10px;
+    margin: 15px;
+    outline: none;
+    caret-color: #fff;
+    color: #fff;
+    font-weight: 400;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: rgb(36, 219, 36);
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+}

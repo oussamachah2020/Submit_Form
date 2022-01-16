@@ -1,0 +1,247 @@
+Node Js Course: 
+
+1/ it's a tool that helps js work on the server 
+
+💚️ things to learn first: 💚️
+
+.HTTP(status codes, headers...)
+.JSON
+.Arrow Functions
+.Promises
+.MVC Pattern
+ 
+
+💚️ Some Points: 💚️
+
+.Fast, efficient and highly sclable
+.Event driven, non-blocking I/O model
+.Popular in the industry
+.Same language on the front and back end (JS)
+
+
+💚️ NON-BLOCKING I/O: 💚️
+
+.Works on a single thread using non-blocking I/O calls
+.Supports tens of thousands concurrent connections
+.Optimizes throughtput & scalability in apps with many I/O Operations
+
+
+💚️ NODE'S EVENT LOOP: 💚️
+
+.Single threaded
+.Support concurrency via events & callbacks
+.EventEmitter class is used to bind events and listeners
+
+
+💚️ BEST TYPES OF PROJECTS FOR NODE: 💚️
+
+.REST API & Microservices
+.Real Time Services (Chat, Live Updates)
+.CRUD Apps - Blogs, shopping Carts, Social Networks
+.Tools & Utilities
+
+🛑️ Anything that is not CPU intensive
+
+
+💚️ NPM - NODE PACKAGE MANAGER:
+
+.install 3rd party packages (frameworks, libraries, tools...)
+.Packages get stored in the "node_modules" folder
+.All dependencies are listed in a "package.json" file
+.NPM scripts can be created to to run certain task
+
+ 👨‍💻️ npm init => Generates a package.json file
+ 👨‍💻️ npm install express => installs a package locally
+ 👨‍💻️ npm install -g nodemon => installs a package globally 
+ 
+💚️ NODE MODULES: 💚️
+
+.Node Core Modules (path, fs, http...)
+.3rd party modules/packages installed via NPM
+.Custom modules (files)
+
+ 👨‍💻️ to import a module use the require("./file's path") function
+
+ 
+👨‍💻️ NODE - TUTORIAL: 👨‍💻️
+
+1/ to create a module:
+
+   create a file with js extention (.js)  
+   write the code then use the module.exports methode
+   
+   const block_name = {
+        code block...
+   }
+   
+   // your file is ready to be used
+   module.exports = block_name
+   
+   //to call it use require('path of the file')
+   
+   //to run the program open your terminal and tap `node    
+     file_name.js`
+   
+2/ a) basic functions to deal with Files:
+   
+   //Base file name => path.basename(__filename)
+   //Directory name => path.dirname(__filename)
+   //file extension => path.extname(__filename)
+   //create path object => path.parse(__filename).base 
+   //concetnate paths => path.join(__dirname, 'file1','file2',...)
+   
+   //create a folder:
+      🚨️const fs = require('fs')
+        const path = require('path')
+        fs.mkdir(path.join(__dirname, '/test'), {}, err => {
+                if (err) throw err;
+                console.log('folder created!!')
+        })🚨️
+   
+   //Write file:
+        the same as creating a folder you have just to replace
+        mkdir() with writeFile() & add two more parameters 
+        `the file_name` & `the content`;
+        
+   //add content to an existent file:
+        use appendFile() function giving the same dir and file name 
+        and write the content that you want to add
+        
+        const fs = require('fs')
+        const path = require('path')
+        fs.appendFile(path.join(__dirname, '/test','file_name.txt'),
+        'the content of the file', err => {
+                if (err) throw err;
+                console.log('folder created!!')
+        });🚨️
+        
+   //read the content of a file:
+        const fs = require('fs')
+        const path = require('path')
+        fs.readFile(path.join(__dirname, '/test','file_name'),'utf8'
+        .....)
+        
+        we use 'utf8' to see the real content of the file
+        
+    //rename a file:
+         fs.raname(
+                path.join(__dirname, 'path', 'old_file_name'),
+                path.join(__dirname, 'path', 'new_file_name'),
+                err => {
+                        if(err) throw err;
+                        console.log('....');
+                }
+         )
+         
+         we use the rename() function and give it two parameters
+         both of them contain the path and the name of the file
+         
+         
+💚️ OS Module 💚️:
+  the `os` module allows you to get information about your system in 
+  both software and hardware
+  
+  .`os` module is useful when you are building application connected
+    to your operating system  
+   
+💚️ url Module 💚️:
+   dealing with urls easily by using the url's module methods like: 
+   
+   //Serialized URL:
+   usnig the href method allow you to display the target url
+   
+   //Host (root doamain):
+   get the hostname
+   
+   //Pathname:
+   get the path which is the html file of the url
+   
+   //Serialized query
+   it give all the information after the ? mark in the url
+
+💚️ Event Module 💚️:
+   const EventEmitter = require('events');
+   
+   //Create Class
+   class MyEmitter extends EventEmitter {}
+   
+   //Event listener
+   myEmitter.on('event',() => console.log('event fired!'));
+   !!! we use on to activate the event
+   
+   //Init event
+   myEmitter.emit('event')
+   
+
+💚️ HTTP Module: 💚️ 
+
+   to create a server, we use the http module:
+   
+   const http = require('http');
+   
+   //create server object
+   http.createServer((req, res) => {
+        //write response
+        res.write('hello world');
+        res.end();
+   }).listen(5000,() => console.log('Server running...'))
+   
+   the createServer() function gets two arguments request
+   and response
+   
+   
+💚️ Serve Handling: 💚️
+   1: we Create a servet with creatServer() method
+   2: Build the file path using path module
+        const path = require('path')
+        let filePath = path.join(__dirname,'dir_name',
+                req.url === '/' ? 'file_name' : req.url
+        );
+        //we check if the url is a slash , if it's true pass
+         the file_name else path whatever the url is
+      
+   3: we handl the file extension with the extname() method
+        let extname = path.extname(file_path);
+        //initial content path
+        let contentType = 'text/html';
+        
+        //check the extension and set contenrt type
+        
+        switch(extname) {
+                case '.js':
+                     contentType = 'text/javascript';
+                     break;
+                case '.css':
+                     contentType = 'text/css';
+                     break;
+                case '.json':
+                     contentType = 'application/json';
+                     break;
+                case '.png':
+                     contentType = 'image/png';$
+                     break;
+        }
+        
+    4: now we read the file
+        fs.readFile(filePath, (err, content) => {
+           if (err) {
+              if(err.code == 'ENODENT') {
+                 //in case poge is not found
+                 fs.readFile(path.join(__dirname,'dir_name',
+                 '404.html'),(err, content) => {
+                        res.writeHead(200, {Content-Type: 'text/html'})
+                        res.end(content, 'utf8')
+                 })
+              }else {
+                //some server error
+                res.writeHead(500);
+                res.end(`server error: ${err.code}`)
+              }
+             }else {
+                //success
+                res.writeHead(200,{Content-Type: 'text/html'})
+                res.end(content, 'utf8');
+             }
+           }
+        })
+   
